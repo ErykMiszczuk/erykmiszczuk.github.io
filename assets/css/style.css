@@ -357,6 +357,7 @@ html {
 		line-height: 2em;
 		font-family: 'Merriweather Sans', sans-serif, monospace;
 		font-weight: 300;
+	min-width: 500px;
 }
 
 body {
