@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.2.0/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.945f3b402d1887efa900cee4e64b3e7e.js"
+  "/precache-manifest.7021408f0220f96a7d3d198dc5a39709.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "erykmiszczuk-src"});
