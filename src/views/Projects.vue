@@ -13,6 +13,15 @@
                 </section>
                 <section class="card card-big ">
                     <header class="card-header">
+                        <h2>Image Processing</h2>
+                    </header>
+                    <div class="card-content">
+                        Ten program został stworzony w ramach zajęć z przetwarzania obrazu. Był to projekt zespołowy. Dodatkowo część programu nie związana z przetwarzaniem obrazu, jak kontrolki, została zapewniona przez prowadzącego zajęcia. 
+                        <a href="https://github.com/ErykMiszczuk/ImageProcessingLaboratory">Github</a>
+                    </div>
+                </section>
+                <section class="card card-big ">
+                    <header class="card-header">
                         <h2>Movie Rating Predict</h2>
                     </header>
                     <div class="card-content">
