@@ -1,2 +1,2 @@
-# erykmiszczuk.github.io
-Website about me and my projects.
+# erykmiszczuk-src
+Sources of erykmiszczuk.github.io
