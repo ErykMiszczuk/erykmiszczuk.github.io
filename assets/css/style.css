@@ -631,11 +631,12 @@ figure.card-photo {
   .home__leftColumn,
   .home__rightColumn {
       width: 100%;
+      min-width: 268px;
   }
 }
 
 @media (max-width: 660px) {
     body {
-        padding: 1rem 3.5em 1em 3.5em;
+        padding: 1rem;
     }
 }
