@@ -7,7 +7,7 @@
                         <h2>Clank Assistant</h2>
                     </header>
                     <div class="card-content">
-                        Jest to projetk stworzony na zajęcia z Przetwarzania Języka Naturalnego, na mojej uczelni. Program miał na bazie wczesniej ustalonych reguł odpowienio reagować na to co użytkownik mu napisze w bardziej swobodnym języku. Clank rozumie, że ma włączyć program (Steam, domyślna rzeglądarka, Netflix i Spotify ze sklepu Microsoft), wyłączyć dowolny program, odtworzyć muzykę za pomocą domyślnego odtwarzacza, pobrać i ustalić tapetę o zadanym temacie oraz opowiadać kawału o Chuck'u Norris'ie.
+                        Jest to projekt stworzony na zajęcia z Przetwarzania Języka Naturalnego, na mojej uczelni. Program miał na bazie wcześniej ustalonych reguł odpowienio reagować na to co użytkownik mu napisze w bardziej swobodnym języku. Clank rozumie, że ma włączyć program (Steam, domyślna rzeglądarka, Netflix i Spotify ze sklepu Microsoft), wyłączyć dowolny program, odtworzyć muzykę za pomocą domyślnego odtwarzacza, pobrać i ustalić tapetę o zadanym temacie oraz opowiadać kawał o Chuck'u Norris'ie.
                         <a href="https://github.com/ErykMiszczuk/Clank-Assistant">Github</a>
                     </div>
                 </section>
@@ -25,7 +25,7 @@
                         <h2>Moja strona</h2>
                     </header>
                     <div class="card-content">
-                        Moja strona jest rownież moim projektem, w pełni wykonanym własnoręcznie bez użycia bibliotek css. Najbardziej mi zależało na tym by była ona jak najbardziej czytelna i prosta w utrzymaniu. Dlatego zdecydowałem się użyć frameworka Vue aby łatwiej było mi zarządzać stroną.
+                        Moja strona jest rownież moim projektem, w pełni wykonanym własnoręcznie bez użycia bibliotek css. Najbardziej zależało mi na tym by była ona jak najbardziej czytelna i prosta w utrzymaniu. Dlatego zdecydowałem się użyć frameworka Vue aby łatwiej było mi zarządzać stroną.
                     </div>
                 </section>
                 <section class="card card-big ">

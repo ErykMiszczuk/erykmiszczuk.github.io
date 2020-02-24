@@ -624,7 +624,7 @@ figure.card-photo {
       width: 100%;
   }
 
-  .home {
+  .home, .projects {
       flex-direction: column;
   }
 
