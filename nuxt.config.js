@@ -4,7 +4,7 @@ export default {
         'nuxt-i18n'
     ],
     i18n: {
-        baseUrl: 'lang',
+        baseUrl: 'https://erykmiszczuk.github.io',
         locales: [
             { code: 'pl', iso: 'pl-PL', file: 'pl.json'},
             { code: 'en', iso: 'en-US', file: 'en.json'}
@@ -15,7 +15,6 @@ export default {
         lazy: true,
         detectBrowserLanguage: {
             onlyOnRoot: true
-        },
-        seo: true,
+        }
     }
 }
