@@ -16,5 +16,16 @@ export default {
         detectBrowserLanguage: {
             onlyOnRoot: true
         }
+    },
+    css: [
+        '@/assets/scss/_colors.scss'
+    ],
+    head: {
+        link: [
+            {
+                rel: 'stylesheet',
+                href: 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Spartan:wght@400;600&display=swap'
+            }
+        ]
     }
 }

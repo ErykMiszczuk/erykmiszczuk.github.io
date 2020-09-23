@@ -1,3 +1,8 @@
 {
-    "greetings": "Hello there!"
+    "greetings": "Hello there!",
+    "pages": {
+        "main": "Main page",
+        "projects": "Projects",
+        "contact": "Contact"
+    }
 }

@@ -22,6 +22,8 @@
   "homepage": "https://github.com/ErykMiszczuk/erykmiszczuk.github.io#readme",
   "dependencies": {
     "nuxt": "^2.14.6",
-    "nuxt-i18n": "^6.15.1"
+    "nuxt-i18n": "^6.15.1",
+    "sass": "^1.26.11",
+    "sass-loader": "^10.0.2"
   }
 }

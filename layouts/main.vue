@@ -1,6 +1,6 @@
 <template>
-    <div class="app">
-        <main-menu />
+    <div class="app theme--default">
+        <TopBar />
         <Nuxt />
     </div>
 </template>
@@ -12,3 +12,18 @@ export default {
     }
 }
 </script>
+
+<style lang="scss">
+@use '@/assets/scss/_colors.scss';
+
+html {
+    margin: 0;
+    font-size: 1em;
+    background-color: colors.$colorPrimaryDark;
+}
+
+body {
+    margin: 0;
+}
+
+</style>
