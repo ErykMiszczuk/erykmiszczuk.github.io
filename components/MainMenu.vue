@@ -1,8 +1,9 @@
 <template>
     <nav class="main-menu">
         <ul class="menu-list">
-            <li class="menu-list__item"><NuxtLink :to="localePath('/')">{{ $t('pages.main')}}</NuxtLink></li>
-            <li class="menu-list__item"><NuxtLink :to="localePath('/projects')">{{ $t('pages.projects')}}</NuxtLink></li>
+            <li class="menu-list__item"><NuxtLink :to="localePath('/')" class="main-menu__link">{{ $t('pages.main')}}</NuxtLink></li>
+            <li class="menu-list__item"><NuxtLink :to="localePath('/projects')" class="main-menu__link">{{ $t('pages.projects')}}</NuxtLink></li>
+            <li class="menu-list__item"><NuxtLink :to="localePath('/contact')" class="main-menu__link">{{ $t('pages.contact')}}</NuxtLink></li>
         </ul>
     </nav>
 </template>
@@ -22,19 +23,58 @@ export default {
     padding: clamp(.5em, 2vw, 1em);
     display: flex;
     flex-direction: row;
-    border-bottom: .1em solid colors.$colorSecondary;
 }
 
-.menu-list__item {
+.main-menu__link {
     display: block;
     font-family: 'Spartan', sans-serif;
-    color: colors.$colorSecondary;
-    padding: .5em 2em;
-    border: .1em solid colors.$colorSecondary;
+    white-space: nowrap;
+    color: colors.$colorTextLight;
+    padding: .6em 2em .5em 2em;
+    border: .1em solid transparent;
     border-radius: 2em;
     text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:link {
+        color: colors.$colorTextLight;
+        text-decoration: none;
+    }
+
+    &:visited {
+        color: colors.$colorTextLight;
+        text-decoration: none;
+    }
+
+    &:hover {
+        color: colors.$colorSecondary;
+        border-color: colors.$colorSecondary;
+    }
+
+    &:active {
+        color: colors.$colorSecondaryDark;
+        border-color: colors.$colorSecondaryDark;
+    }
 
 }
+
+.nuxt-link-exact-active {
+    position: relative;
+    
+    &::after {
+        content: " ";
+        position: relative;
+        top: .5em;
+        left: 15%;
+        display: block;
+        background-color: colors.$colorSecondary;
+        width: 70%;
+        height: .1em;
+        border-radius: 2px;
+    }
+}
+
 </style>
 
 
