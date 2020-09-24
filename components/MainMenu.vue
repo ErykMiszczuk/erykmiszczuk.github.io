@@ -30,12 +30,15 @@ export default {
     font-family: 'Spartan', sans-serif;
     white-space: nowrap;
     color: colors.$colorTextLight;
-    padding: .6em 2em .5em 2em;
+    padding: .5em 2em .3em 2em;
     border: .1em solid transparent;
     border-radius: 2em;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
+    line-height: 1em;
+    height: 1em;
+    text-align: center;
 
     &:link {
         color: colors.$colorTextLight;
@@ -65,7 +68,7 @@ export default {
     &::after {
         content: " ";
         position: relative;
-        top: .5em;
+        top: .3em;
         left: 15%;
         display: block;
         background-color: colors.$colorSecondary;
@@ -75,6 +78,12 @@ export default {
     }
 }
 
+@media (max-width: 768px) {
+    .menu-list {
+        margin-top: 2em;
+        flex-direction: column;
+    }
+}
 </style>
 
 

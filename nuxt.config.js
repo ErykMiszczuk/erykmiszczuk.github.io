@@ -26,6 +26,12 @@ export default {
                 rel: 'stylesheet',
                 href: 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Spartan:wght@400;600&display=swap'
             }
+        ],
+        meta: [
+            {
+                name: 'viewport',
+                content: 'width=device-width,initial-scale=1'
+            }
         ]
     }
 }

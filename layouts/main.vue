@@ -1,7 +1,8 @@
 <template>
     <div class="app theme--default">
         <TopBar />
-        <Nuxt />
+        <MainArea />
+        <BottomBar />
     </div>
 </template>
 
@@ -19,7 +20,8 @@ export default {
 html {
     margin: 0;
     font-size: 1em;
-    background-color: colors.$colorPrimaryDark;
+    background-color: colors.$colorLight;
+    box-sizing: border-box;
 }
 
 body {
