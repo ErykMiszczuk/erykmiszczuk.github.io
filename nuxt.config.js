@@ -1,7 +1,8 @@
 export default {
     components: true,
     modules: [
-        'nuxt-i18n'
+        'nuxt-i18n',
+        '@nuxt/content'
     ],
     i18n: {
         baseUrl: 'https://erykmiszczuk.github.io',

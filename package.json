@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/ErykMiszczuk/erykmiszczuk.github.io#readme",
   "dependencies": {
+    "@nuxt/content": "^1.9.0",
     "nuxt": "^2.14.6",
     "nuxt-i18n": "^6.15.1",
     "sass": "^1.26.11",
