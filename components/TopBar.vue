@@ -9,6 +9,7 @@
             <div 
                 class="button"
                 @click="toggleMainMenu"
+                v-if="showMainMenuButton"
             >
                 H
             </div> 
@@ -23,8 +24,22 @@ export default {
     name: 'top-bar',
     data() {
         return {
-            showMainMenu: false
+            showMainMenu: true,
+            showMainMenuButton: false,
         }
+    },
+    mounted() {
+        let mediaQuery = window.matchMedia(" (max-width: 768px) ");
+        console.log(mediaQuery);
+        mediaQuery.addListener(e => {
+            if (e.matches) {
+                this.showMainMenu = false;
+                this.showMainMenuButton = true;
+            } else {
+                this.showMainMenu = true;
+                this.showMainMenuButton = false;
+            }
+        })
     },
     methods: {
         toggleMainMenu() {
