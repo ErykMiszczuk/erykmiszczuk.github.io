@@ -30,7 +30,6 @@ export default {
     },
     mounted() {
         let mediaQuery = window.matchMedia(" (max-width: 768px) ");
-        console.log(mediaQuery);
         mediaQuery.addListener(e => {
             if (e.matches) {
                 this.showMainMenu = false;

@@ -8,8 +8,8 @@
 <script>
 export default {
     layout: 'main',
-    async asyncData({ $content }) {
-        const page = await $content('home').fetch()
+    async asyncData({ $content, app }) {
+        const page = await $content(`home_${app.i18n.locale}`).fetch()
 
         return {
             page
