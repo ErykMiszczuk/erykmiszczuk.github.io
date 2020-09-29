@@ -4,8 +4,6 @@
             Eryk Miszczuk
         </div>
         <Spacer />
-        <div class="top-bar__menu">
-
             <div 
                 class="button"
                 @click="toggleMainMenu"
@@ -13,6 +11,8 @@
             >
                 H
             </div> 
+        <div class="top-bar__menu">
+
             <MainMenu v-if="showMainMenu"/>
 
         </div>
@@ -68,6 +68,7 @@ export default {
 }
 
 .button {
+    margin-right: 1em;
     width: 3em;
     height: 3em;
     background: red;
@@ -75,8 +76,13 @@ export default {
 
 @media (max-width: 768px) {
     .top-bar {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .top-bar__menu {
+        width: 100%;
     }
 }
 </style>
