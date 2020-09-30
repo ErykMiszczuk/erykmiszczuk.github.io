@@ -4,13 +4,11 @@
             Eryk Miszczuk
         </div>
         <Spacer />
-            <div 
-                class="button"
-                @click="toggleMainMenu"
-                v-if="showMainMenuButton"
-            >
-                H
-            </div> 
+        <ToggleMenu
+            v-if="showMainMenuButton"
+            :checked="showMainMenu"
+            @click="toggleMainMenu"
+        />
         <div class="top-bar__menu">
 
             <MainMenu v-if="showMainMenu"/>
@@ -65,13 +63,6 @@ export default {
     text-transform: uppercase;
     font-size: clamp(1em, 2vh, 1.5em);
     margin-left: 1em;
-}
-
-.button {
-    margin-right: 1em;
-    width: 3em;
-    height: 3em;
-    background: red;
 }
 
 @media (max-width: 768px) {

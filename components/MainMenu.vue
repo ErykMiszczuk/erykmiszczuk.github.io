@@ -106,9 +106,27 @@ export default {
 }
 
 @media (max-width: 768px) {
+    .main-menu {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-menu__language-switcher {
+        border-left: none;
+        border-top: 1px solid colors.$colorSecondaryDark;
+        margin-top: 1em;
+        padding: 0px .5em;
+    }
+
     .menu-list {
         margin-top: 2em;
         flex-direction: column;
+    }
+
+    .menu-list__item{
+        margin: .5em;
     }
 }
 </style>
