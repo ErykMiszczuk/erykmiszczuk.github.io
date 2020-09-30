@@ -5,17 +5,44 @@
             <li class="menu-list__item"><NuxtLink :to="localePath('/projects')" class="main-menu__link">{{ $t('pages.projects')}}</NuxtLink></li>
             <li class="menu-list__item"><NuxtLink :to="localePath('/contact')" class="main-menu__link">{{ $t('pages.contact')}}</NuxtLink></li>
         </ul>
+        <div class="main-menu__language-switcher">
+            <nuxt-link
+                v-for="locale in availableLocales"
+                :key="locale.code"
+                :to="switchLocalePath(locale.code)"
+                class="main-menu__link"
+            >
+                {{ locale.code }}
+            </nuxt-link>
+        </div>
     </nav>
 </template>
 
 <script>
 export default {
-    name: 'main-menu'
+    name: 'main-menu',
+    computed: {
+        availableLocales() {
+            return this.$i18n.locales.filter(i => i.code !== this.$i18n.locale)
+        }
+    }
 }
 </script>
 
 <style lang="scss">
 @use '@/assets/scss/_colors.scss';
+
+.main-menu {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+}
+
+.main-menu__language-switcher {
+    border-left: 1px solid colors.$colorSecondaryDark;
+    padding: 0px .5em;
+}
 
 .menu-list {
     list-style-type: none;
