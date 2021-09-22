@@ -49,7 +49,6 @@ export default {
 }
 
 .social-links__item {
-    font-family: 'Spartan', sans-serif;
     font-size: clamp(.5em, 1.5vw, .75em);
     padding: clamp(.5em, 2vw, 1em);
 }
@@ -78,6 +77,10 @@ export default {
     &:active {
         color: colors.$colorSecondaryDark;
         border-color: colors.$colorSecondaryDark;
+    }
+
+    &__text {
+        font-family: 'Spartan', sans-serif;
     }
 }
 </style>
