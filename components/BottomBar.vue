@@ -1,9 +1,24 @@
 <template>
     <footer class="bottom-bar">
         <ul class="social-links">
-            <li class="social-links__item"><a class="link--social" href="https://www.instagram.com/erykmiszczuk/">Instagram</a></li>
-            <li class="social-links__item"><a class="link--social" href="https://github.com/ErykMiszczuk">Github</a></li>
-            <li class="social-links__item"><a class="link--social" href="https://www.linkedin.com/in/erykmiszczuk216/">Linkedin</a></li>
+            <li class="social-links__item">
+                <a class="social-link" href="https://www.instagram.com/erykmiszczuk/">
+                    <i class="cib-instagram social-link__icon"></i>
+                    <span class="social-link__text"> Instagram </span>
+                </a>
+            </li>
+            <li class="social-links__item">
+                <a class="social-link" href="https://github.com/ErykMiszczuk">
+                    <i class="cib-github social-link__icon"></i>
+                    <span class="social-link__text"> Github </span>
+                </a>
+            </li>
+            <li class="social-links__item">
+                <a class="social-link" href="https://www.linkedin.com/in/erykmiszczuk216/">
+                    <i class="cib-linkedin social-link__icon"></i>
+                    <span class="social-link__text"> LinkedIn </span>
+                </a>
+            </li>
         </ul>
     </footer>
 </template>
@@ -39,8 +54,11 @@ export default {
     padding: clamp(.5em, 2vw, 1em);
 }
 
-.link--social {
+.social-link {
     color: colors.$colorTextLight;
+    display: flex;
+    align-items: center;
+    gap: clamp(.25em, 1vw, .5em);
 
     &:link {
         color: colors.$colorTextLight;

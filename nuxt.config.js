@@ -28,6 +28,12 @@ export default {
                 href: 'https://fonts.googleapis.com/css2?family=Open+Sans&family=Spartan:wght@400;600&display=swap'
             }
         ],
+        link: [
+            {
+                rel: 'stylesheet',
+                href: 'https://unpkg.com/@coreui/icons/css/brand.min.css'
+            }
+        ],
         meta: [
             {
                 name: 'viewport',

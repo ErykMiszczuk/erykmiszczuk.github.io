@@ -2,6 +2,7 @@
 title: Projekt clickingtown
 description: Clicker napisany z wykorzystaniem farmeworku Vue
 ---
+# Clickingtown
 
 Clickingtown to casualowa gra typu clicker, dostosowana głównie na komputery. W ramach eksperymentów z Vue chciałem stworzyć coś bardziej odstającego od typowej aplikacji Todo. Zależności w tego typu grach i modyfikacja danych jest zdecydowanie bardziej złożona niż w typowym todo. 
 
