@@ -27,20 +27,23 @@ export default {
         }
     },
     mounted() {
-        let mediaQuery = window.matchMedia(" (max-width: 768px) ");
-        mediaQuery.addListener(e => {
-            if (e.matches) {
-                this.showMainMenu = false;
-                this.showMainMenuButton = true;
-            } else {
-                this.showMainMenu = true;
-                this.showMainMenuButton = false;
-            }
-        })
-    },
+            this.watchWindowWidth();
+        },
     methods: {
         toggleMainMenu() {
-            this.showMainMenu = !this.showMainMenu
+            this.showMainMenu = !this.showMainMenu;
+        },
+        watchWindowWidth() {
+            let mediaQuery = window.matchMedia(" (max-width: 768px) ");
+            mediaQuery.addEventListener("change", e => {
+                if (e.matches) {
+                    this.showMainMenu = false;
+                    this.showMainMenuButton = true;
+                } else {
+                    this.showMainMenu = true;
+                    this.showMainMenuButton = false;
+                }
+            })
         }
     }
 }

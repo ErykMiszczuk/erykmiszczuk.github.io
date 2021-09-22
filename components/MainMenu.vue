@@ -117,7 +117,7 @@ export default {
         border-left: none;
         border-top: 1px solid colors.$colorSecondaryDark;
         margin-top: 1em;
-        padding: 0px .5em;
+        padding: .25em .5em;
     }
 
     .menu-list {
