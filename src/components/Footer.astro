@@ -3,8 +3,11 @@ import { SITE_TITLE } from "../consts"
 const today = new Date();
 ---
 
-<footer>
-	&copy; {today.getFullYear()} {SITE_TITLE}
+<footer class="main-footer">
+	<div class="main-footer__copyright">
+		Made with 💕 using Astro &copy; {today.getFullYear()} {SITE_TITLE}
+	</div>
+	<div class="main-footer__spacer"></div>
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
@@ -41,17 +44,25 @@ const today = new Date();
 	</div>
 </footer>
 <style>
-	footer {
-		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
-		text-align: center;
+	.main-footer {
+		margin: 0px 2rem;
+		padding: .5rem 1rem;
+		border-color: rgb(var(--gray));
+		border-top-style: solid;
+		border-width: 3px;
+
+		display: flex;
+	}
+
+	.main-footer__copyright {
+		font-style: italic;
+	}
+	.main-footer__spacer {
+		flex: 1;
 	}
 	.social-links {
 		display: flex;
-		justify-content: center;
 		gap: 1em;
-		margin-top: 1em;
 	}
 	.social-links a {
 		text-decoration: none;
