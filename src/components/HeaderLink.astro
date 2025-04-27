@@ -18,12 +18,12 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
     justify-content: center;
     align-items: center;
     text-decoration: none;
-    color: var(--black);
+    color: var(--white);
     border-radius: var(--border-round);
     margin: var(--border-w2);
   }
   a.active {
-    background: rgb(191, 123, 50);
+    background: var(--accent);
     background: radial-gradient(
       circle,
       rgba(191, 123, 50, 1) 0%,
