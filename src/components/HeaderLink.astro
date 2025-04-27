@@ -4,15 +4,29 @@ import type { HTMLAttributes } from "astro/types";
 type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
+const pathname = "/" + Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
 const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
+const isActive = href === pathname || href === (subpath?.[0] || "");
 ---
 
-<a href={href} class:list={[className, { active: isActive }]} {...props}>
-  <slot />
-</a>
+<div class:list={["header-link", { "header-link--active": isActive }]}>
+  <a href={href} class:list={[className, { active: isActive }]} {...props}>
+    <slot />
+  </a>
+</div>
 <style>
+  .header-link {
+    display: flex;
+    height: 100%;
+  }
+
+  .header-link--active {
+    background: radial-gradient(
+      circle at bottom,
+      rgb(234, 174, 0) 4%,
+      rgba(255, 208, 0, 0) 20%
+    );
+  }
   a {
     display: flex;
     justify-content: center;
@@ -20,17 +34,14 @@ const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
     text-decoration: none;
     color: var(--white);
     border-radius: var(--border-round);
-    margin: var(--border-w2);
+    margin: 0.75rem 2rem;
+    padding: 0.25rem 2rem;
   }
   a.active {
-    background: var(--accent);
-    background: radial-gradient(
-      circle,
-      rgba(191, 123, 50, 1) 0%,
-      rgba(251, 181, 0, 1) 100%
-    );
+    color: var(--accent);
   }
   a:hover {
+    color: var(--white);
     background: rgba(251, 181, 0, 1) 100%;
   }
 </style>

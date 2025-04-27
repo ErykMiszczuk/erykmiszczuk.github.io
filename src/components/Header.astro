@@ -8,24 +8,24 @@ import { SITE_TITLE } from "../consts";
 <header>
   <nav class="main-nav">
     <h2 class="site-logo">
-      <a href="/" class="site-logo__link">{SITE_TITLE}</a>
+      <a href="/en" class="site-logo__link">{SITE_TITLE}</a>
     </h2>
     <div class="internal-links">
-      <HeaderLink href="/en-en/">Home</HeaderLink>
-      <HeaderLink href="/en-en/blog">Blog</HeaderLink>
+      <HeaderLink href="/en/">Home</HeaderLink>
+      <HeaderLink href="/en/blog">Blog</HeaderLink>
     </div>
     <div class="user-settings">
-      <LanguageSwitcher></LanguageSwitcher>
+      <LanguageSwitcher />
     </div>
   </nav>
 </header>
 <style>
   .main-nav {
     margin: 0px 2rem;
-		padding: .5rem 1rem;
-		border-color: var(--white);
-		border-bottom-style: solid;
-		border-width: 3px;
+    padding: 0 1rem;
+    border-color: var(--white);
+    border-bottom-style: solid;
+    border-width: 3px;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
   }
@@ -35,7 +35,7 @@ import { SITE_TITLE } from "../consts";
     color: var(--white);
   }
   .internal-links {
-    margin: 0.5rem 0;
     display: flex;
+    justify-content: center;
   }
 </style>
