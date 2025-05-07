@@ -3,3 +3,8 @@
 
 export const SITE_TITLE = "Eryk Miszczuk";
 export const SITE_DESCRIPTION = "Welcome to my website!";
+
+export const AVAILABLE_LANGUAGES = [
+  {code: "pl", name: "Polski", flag: "🇵🇱", default: false},
+  {code: "en", name: "English", flag: "🇬🇧", default: true}
+]

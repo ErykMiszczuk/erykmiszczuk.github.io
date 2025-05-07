@@ -1,8 +1,27 @@
-<select name="language-switcher" id="language-switcher">
-    <button>
-        <selectedcontent></selectedcontent>
-    </button>
+---
+import { AVAILABLE_LANGUAGES } from "../consts";
+---
 
-    <option value="en-en">English</option>
-    <option value="pl-pl">Polski</option>
-</select>
+<div custom-select-element>
+    <form>
+        <p>
+            <label for="language-select">Language:</label>
+            <select id="language-select">
+                <button>
+                    <selectedcontent></selectedcontent>
+                </button>
+
+                {
+                    AVAILABLE_LANGUAGES.map((lang) => (
+                        <option value={lang.code} selected={lang.default}>
+                            <span class="icon" aria-hidden="true">
+                                {lang.flag}
+                            </span>
+                            <span class="option-label">{lang.name}</span>
+                        </option>
+                    ))
+                }
+            </select>
+        </p>
+    </form>
+</div>
