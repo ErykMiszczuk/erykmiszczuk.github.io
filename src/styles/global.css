@@ -6,18 +6,26 @@
 
 :root {
   --accent: lch(77% 82.59 76.53);
-  --accent-dark: lch(67.09% 75.84 72.29);
-  --white: lch(100% 0.01 296.81);
-  --black: lch(5.46% 4.99 276.76);
+  --accent-secondary: lch(67.09% 75.84 72.29);
+  --main-text: lch(100% 0.01 296.81);
+  --main-background: lch(5.46% 4.99 276.76);
+  --secondary-text: rgb(229, 233, 240);
+  --secondary-background: lch(16.61% 11.4 278.82);
+  
   --gray: rgb(96, 115, 159);
-  --gray-light: rgb(229, 233, 240);
-  --gray-dark: rgb(34, 41, 57);
-  --gray-gradient: rgba(var(--gray-dark), 50%), #fff;
-  --box-shadow:
-    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
   --border-round: 3rem;
   --border-w1: 2px;
   --border-w2: 4px;
+}
+
+.c1 {
+  --main-text: oklch(98.5% 0 0);
+  --secondary-text: oklch(70.4% 0.04 256.788);
+  --main-background: oklch(14.5% 0 0);
+  --secondary-background: oklch(20.61% 0.04 256.788);
+  --tertiary-background: oklch(25.61% 0.04 256.788);
+  --accent: oklch(82.8% 0.189 84.429);
+  --accent-secondary: oklch(66.6% 0.179 58.318)
 }
 
 body {
@@ -25,10 +33,10 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: var(--black);
+  background: var(--main-background);
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: var(--white);
+  color: var(--main-text);
   font-size: 1.3rem;
   line-height: 1.7;
 }
@@ -38,6 +46,7 @@ main {
   max-width: calc(100% - 2em);
   margin: auto;
   padding: 3em 1em;
+  background-color: var(--secondary-background);
 }
 
 h1,
@@ -47,7 +56,7 @@ h4,
 h5,
 h6 {
   margin: 0 0 0.5rem 0;
-  color: var(--white);
+  color: var(--main-text);
   line-height: 1.2;
 }
 
@@ -113,7 +122,7 @@ img {
 
 code {
   padding: 2px 5px;
-  background-color: var(--gray-dark);
+  background-color: var(--tertiary-background);
   border-radius: 2px;
 }
 
@@ -135,7 +144,7 @@ blockquote {
 
 hr {
   border: none;
-  border-top: 1px solid var(--gray-light);
+  border-top: 1px solid var(--secondary-background);
 }
 
 @media (max-width: 720px) {
@@ -185,21 +194,21 @@ hr {
   }
 
   select {
-    background-color: var(--gray-dark);
+    background-color: var(--secondary-background);
     padding: .5rem 1.5rem;
-    border: 2px solid var(--white);
+    border: 2px solid var(--main-text);
     border-radius: 99999px;
-    color: var(--white);
+    color: var(--main-text);
     font-size: 1rem;
     transition: 0.4s;
   }
 
   select:hover {
-    background: var(--gray-dark);
+    background: var(--secondary-background);
   }
 
   select::picker-icon {
-    color: var(--white);
+    color: var(--main-text);
     transition: 0.3s rotate;
     width: 1rem;
   }
@@ -217,7 +226,7 @@ hr {
     justify-content: flex-start;
     gap: 20px;
 
-    border: 2px solid var(--white);
+    border: 2px solid var(--main-text);
     padding: 10px;
     transition: 0.4s;
   }
