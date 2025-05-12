@@ -29,6 +29,12 @@ import { SITE_TITLE } from "../consts";
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
   }
+  .site-logo {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-shadow: 0 0 4px var(--secondary-text);
+  }
   .site-logo__link {
     font-size: 2rem;
     text-decoration: none;
@@ -37,5 +43,10 @@ import { SITE_TITLE } from "../consts";
   .internal-links {
     display: flex;
     justify-content: center;
+  }
+  .user-settings {
+    display: flex;
+    align-items: center;
+    justify-content: end;
   }
 </style>

@@ -3,6 +3,9 @@
 
 export const SITE_TITLE = "Eryk Miszczuk";
 export const SITE_DESCRIPTION = "Welcome to my website!";
+export const PATHS = {
+  GITHUB: "https://github.com/ErykMiszczuk"
+}
 
 export const AVAILABLE_LANGUAGES = [
   {code: "pl", name: "Polski", flag: "🇵🇱", default: false},

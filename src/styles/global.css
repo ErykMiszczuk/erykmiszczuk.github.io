@@ -11,7 +11,8 @@
   --main-background: lch(5.46% 4.99 276.76);
   --secondary-text: rgb(229, 233, 240);
   --secondary-background: lch(16.61% 11.4 278.82);
-  
+  --tertiary-background: oklch(25.61% 0.04 256.788);
+
   --gray: rgb(96, 115, 159);
   --border-round: 3rem;
   --border-w1: 2px;
@@ -20,12 +21,12 @@
 
 .c1 {
   --main-text: oklch(98.5% 0 0);
-  --secondary-text: oklch(70.4% 0.04 256.788);
+  --secondary-text: lch(63.6% 7.27 290.97);
   --main-background: oklch(14.5% 0 0);
-  --secondary-background: oklch(20.61% 0.04 256.788);
-  --tertiary-background: oklch(25.61% 0.04 256.788);
+  --secondary-background: lch(5.46% 0 296.81);
+  --tertiary-background: lch(15.61% 0.04 256.788);
   --accent: oklch(82.8% 0.189 84.429);
-  --accent-secondary: oklch(66.6% 0.179 58.318)
+  --accent-secondary: oklch(66.6% 0.179 58.318);
 }
 
 body {
@@ -39,14 +40,20 @@ body {
   color: var(--main-text);
   font-size: 1.3rem;
   line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 1rem;
 }
 
 main {
   width: 720px;
   max-width: calc(100% - 2em);
-  margin: auto;
+  margin: 0 auto;
   padding: 3em 1em;
   background-color: var(--secondary-background);
+  flex-grow: 1;
+  border-radius: 1rem;
 }
 
 h1,
@@ -131,7 +138,7 @@ pre {
   border-radius: 8px;
 }
 
-pre>code {
+pre > code {
   all: unset;
 }
 
@@ -179,23 +186,14 @@ hr {
   display: flex;
   justify-content: flex-end;
 
-  p {
-    display: flex;
-  }
-
   select,
   ::picker(select) {
     appearance: base-select;
   }
 
-  label {
-    width: fit-content;
-    align-self: center;
-  }
-
   select {
     background-color: var(--secondary-background);
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     border: 2px solid var(--main-text);
     border-radius: 99999px;
     color: var(--main-text);
@@ -228,7 +226,7 @@ hr {
 
     border: 2px solid var(--main-text);
     padding: 10px;
-    transition: 0.4s;
+    transition: 0.2s;
   }
 
   option:first-of-type {
@@ -243,9 +241,9 @@ hr {
     border-bottom: none;
   }
 
-  option:hover,
-  option:focus {
-    background: plum;
+  option:focus,
+  option:hover {
+    background-color: var(--accent);
   }
 
   option .icon {
@@ -253,23 +251,14 @@ hr {
     text-box: trim-both cap alphabetic;
   }
 
-  selectedcontent .icon {
-    display: none;
-  }
-
   option:checked {
-    font-weight: bold;
-  }
-
-  option::checkmark {
-    order: 1;
-    margin-left: auto;
-    content: "✓";
+    color: var(--accent);
   }
 
   ::picker(select) {
     opacity: 0;
     transition: all 0.4s allow-discrete;
+    background-color: red;
   }
 
   ::picker(select):popover-open {
