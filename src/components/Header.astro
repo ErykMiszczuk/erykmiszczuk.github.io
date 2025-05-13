@@ -3,16 +3,20 @@ import HeaderLink from "./HeaderLink.astro";
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 
 import { SITE_TITLE } from "../consts";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const homePath = getRelativeLocaleUrl("en", "")
+const blogPath = getRelativeLocaleUrl("en", "blog")
 ---
 
 <header>
   <nav class="main-nav">
     <h2 class="site-logo">
-      <a href="/en" class="site-logo__link">{SITE_TITLE}</a>
+      <a href={homePath} class="site-logo__link">{SITE_TITLE}</a>
     </h2>
     <div class="internal-links">
-      <HeaderLink href="/en/">Home</HeaderLink>
-      <HeaderLink href="/en/blog">Blog</HeaderLink>
+      <HeaderLink href={homePath}>Home</HeaderLink>
+      <HeaderLink href={blogPath}>Blog</HeaderLink>
     </div>
     <div class="user-settings">
       <LanguageSwitcher />

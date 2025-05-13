@@ -8,4 +8,15 @@ import vue from "@astrojs/vue";
 export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap(), vue()],
+  i18n: {
+    locales: ['en', 'pl'],
+    defaultLocale: 'en',
+    routing: {
+      prefixDefaultLocale: true,
+      fallbackType: "redirect"
+    },
+    fallback: {
+      pl: 'en'
+    },
+  }
 });

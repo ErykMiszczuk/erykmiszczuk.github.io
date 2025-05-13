@@ -4,7 +4,7 @@ import { AVAILABLE_LANGUAGES } from "../consts";
 
 <div class="custom-select-element">
     <form>
-        <label for="language-select" class="sr-only">Language:</label>
+        <label for="language-select" class="sr-only">Language</label>
         <select id="language-select">
             <button>
                 <selectedcontent></selectedcontent>
@@ -23,3 +23,23 @@ import { AVAILABLE_LANGUAGES } from "../consts";
         </select>
     </form>
 </div>
+
+<script>
+    const select = document.querySelector("#language-select");
+    select?.addEventListener(
+        "change",
+        (e) => {
+            const selectedLanguage = e.target?.value;
+            console.log("Select event", selectedLanguage);
+            const currentPath = window.location.pathname;
+            console.log("Current path", currentPath)
+            let newPath = currentPath.split("/");
+            newPath[1] = selectedLanguage;
+            console.log(newPath)
+            const updatedPath = newPath.join("/");
+            console.log("Updated path", updatedPath);
+            window.location.assign(updatedPath);
+        },
+        { once: true },
+    );
+</script>
