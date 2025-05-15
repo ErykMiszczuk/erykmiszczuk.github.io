@@ -3,6 +3,9 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+
+const airlines = import.meta.env.PUBLIC_AIRLINES;
+const roads = import.meta.env.PUBLIC_ROADS;
 ---
 
 <!doctype html>
@@ -15,23 +18,43 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
     <main>
       <h1>Hello there 👋, I'm Eric</h1>
       <p>
-        I'm an IT Engineer from Poland, passionate about programming, digital experiences, LEGO and books. Professionally I work with Vue and Typescript, but in my spare time I'm open to new experiences and new programming challenges. I have tried different programming languages like Rust or GDScript to power some of new projects, but I'm familiar with C#, Python, C++ and C as well.
+        I'm an IT Engineer from Poland, passionate about programming, digital
+        experiences, LEGO and books.
       </p>
       <p>
-        I'm also deeply intrested with digital experiences, from simple websites to interactive minigames or video games. I'm gathering knowledge through books on designing User Interfaces, with user experience and accessibility in mind. Posmortems and devlogs of video games show new programming patterns, innovations in computer graphics, and how to create engaging apps.
+        Professionally I work with Vue and Typescript, but in my spare time I'm
+        open to new experiences and new programming challenges. I have tried
+        different programming languages like Rust or GDScript to power some of
+        new projects, but I'm familiar with C#, Python, C++ and C as well.
       </p>
-      <p>In my free time I enjoy a good book - mostly fantasy, but also thrillers or non-fiction titles. I'm a creative person. I like to make stuff, so one of my hobbies is building LEGO. Not only as per the provided instruction manual, but also assemble something completely custom. Last but not least, I recently picked up some cookbooks to make something more unique in my kitchen.</p>
-    
+      <p>
+        I'm also deeply intrested with digital experiences, from simple websites
+        to interactive minigames or video games. I'm gathering knowledge through
+        books on designing User Interfaces, with user experience and
+        accessibility in mind. Posmortems and devlogs of video games show new
+        programming patterns, innovations in computer graphics, and how to
+        create engaging apps.
+      </p>
+      <p>
+        In my free time I enjoy a good book - mostly fantasy, but also thrillers
+        or non-fiction titles. I'm a creative person. I like to make stuff, so
+        one of my hobbies is building LEGO. Not only as per the provided
+        instruction manual, but also assemble something completely custom. Last
+        but not least, I recently picked up some cookbooks to make something
+        more unique in my kitchen.
+      </p>
+
       <h2>How to reach me?</h2>
       <ul>
         <li>
-          <a href="mailto:"></a>
+          <a href={airlines}>{airlines}</a>
         </li>
-        <li><a href="https://www.linkedin.com/in/erykmiszczuk216/"></a></li>
+        <li>
+          <a href={roads}>{roads}</a>
+        </li>
       </ul>
-
-      </p>
     </main>
+
     <Footer />
   </body>
 </html>
