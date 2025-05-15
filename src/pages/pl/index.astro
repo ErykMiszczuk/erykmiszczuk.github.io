@@ -3,13 +3,14 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { useAirlines, useRoads } from "../../utils/transportLayer";
 
-const airlines = import.meta.env.PUBLIC_AIRLINES;
-const roads = import.meta.env.PUBLIC_ROADS;
+const [airlines, pilots] = useAirlines();
+const [roads, drivers] = useRoads();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="pl" class="c1">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
@@ -48,10 +49,10 @@ const roads = import.meta.env.PUBLIC_ROADS;
       <h2>Kontakt</h2>
       <ul>
         <li>
-          <a href={airlines}>{airlines}</a>
+          <a href={pilots}>{airlines}</a>
         </li>
         <li>
-          <a href={roads}>{roads}</a>
+          <a href={drivers}>{roads}</a>
         </li>
       </ul>
     </main>
