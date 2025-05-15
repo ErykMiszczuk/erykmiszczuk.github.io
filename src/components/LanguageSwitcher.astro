@@ -26,14 +26,16 @@ import { AVAILABLE_LANGUAGES } from "../consts";
 
 <script>
     const select = document.querySelector("#language-select");
+    const currentPath = window.location.pathname;
     select?.addEventListener(
         "change",
         (e) => {
             const selectedLanguage = e.target?.value;
-            const currentPath = window.location.pathname;
-            let newPath = currentPath.split("/");
+
+            const newPath = currentPath.split("/");
             newPath[1] = selectedLanguage;
             const updatedPath = newPath.join("/");
+
             window.location.assign(updatedPath);
         },
         { once: true },
