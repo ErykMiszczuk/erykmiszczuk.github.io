@@ -1,43 +1,31 @@
 ---
 import { AVAILABLE_LANGUAGES } from "../consts";
+import { getLang } from "../utils/paths";
+
+const [currentLang, ...restOfPathname] = getLang(Astro.url.pathname);
+const pagePath = restOfPathname.join("/");
+console.log("Lang", currentLang, "pagePath", pagePath);
 ---
 
 <div class="custom-select-element">
-    <form>
-        <label for="language-select" class="sr-only">Language</label>
-        <select id="language-select">
-            <button>
-                <selectedcontent></selectedcontent>
-            </button>
-
-            {
-                AVAILABLE_LANGUAGES.map((lang) => (
-                    <option value={lang.code} selected={lang.default}>
-                        <span class="icon" aria-hidden="true">
-                            {lang.flag}
-                        </span>
-                        <span class="option-label">{lang.name}</span>
-                    </option>
-                ))
-            }
-        </select>
-    </form>
+    {
+        AVAILABLE_LANGUAGES.map((lang) => (
+            <a
+                href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
+                class={lang.code === currentLang ? "active" : ""}
+            >
+                <span class="icon" aria-hidden="true">
+                    {lang.flag}
+                </span>
+                <span class="option-label">{lang.name}</span>
+            </a>
+        ))
+    }
 </div>
 
-<script>
-    const select = document.querySelector("#language-select");
-    const currentPath = window.location.pathname;
-    select?.addEventListener(
-        "change",
-        (e) => {
-            const selectedLanguage = e.target?.value;
-
-            const newPath = currentPath.split("/");
-            newPath[1] = selectedLanguage;
-            const updatedPath = newPath.join("/");
-
-            window.location.assign(updatedPath);
-        },
-        { once: true },
-    );
-</script>
+<style>
+    .active {
+        background-color: var(--accent);
+        color: var(--main-text);
+    }
+</style>

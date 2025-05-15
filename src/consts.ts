@@ -8,8 +8,8 @@ export const PATHS = {
 };
 
 export const AVAILABLE_LANGUAGES = [
-  { code: "pl", name: "Polski", flag: "🇵🇱", default: false },
-  { code: "en", name: "English", flag: "🇬🇧", default: true },
+  { code: "pl", name: "Polski", flag: "🇵🇱" },
+  { code: "en", name: "English", flag: "🇬🇧" },
 ];
 
 export const CHAR_PEN = "🖊️";
