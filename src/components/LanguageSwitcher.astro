@@ -1,31 +1,57 @@
 ---
-import { AVAILABLE_LANGUAGES } from "../consts";
+import { AVAILABLE_LANGUAGES, CHAR_PEN } from "../consts";
 import { getLang } from "../utils/paths";
 
 const [currentLang, ...restOfPathname] = getLang(Astro.url.pathname);
 const pagePath = restOfPathname.join("/");
 console.log("Lang", currentLang, "pagePath", pagePath);
+
+const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
+    (el) => el.code === currentLang,
+) || { flag: CHAR_PEN, name: "Default" };
 ---
 
-<div class="custom-select-element">
-    {
-        AVAILABLE_LANGUAGES.map((lang) => (
-            <a
-                href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
-                class={lang.code === currentLang ? "active" : ""}
-            >
-                <span class="icon" aria-hidden="true">
-                    {lang.flag}
-                </span>
-                <span class="option-label">{lang.name}</span>
-            </a>
-        ))
-    }
+<button popovertarget="language-switcher-element">
+    <span class="icon" aria-hidden="true">
+        {selectedLanguageDetails.flag}
+    </span>
+    <span class="option-label">{selectedLanguageDetails.name}</span>
+</button>
+<div id="language-switcher-element" popover>
+    <div class="language-list">
+        {
+            AVAILABLE_LANGUAGES.map((lang) => (
+                <a
+                    href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
+                    class={lang.code === currentLang ? "active" : ""}
+                >
+                    <span class="icon" aria-hidden="true">
+                        {lang.flag}
+                    </span>
+                    <span class="option-label">{lang.name}</span>
+                </a>
+            ))
+        }
+    </div>
 </div>
 
 <style>
     .active {
         background-color: var(--accent);
         color: var(--main-text);
+    }
+
+    .language-list {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--main-background);
+    }
+
+    :popover-open {
+        position: absolute;
+        inset: unset;
+        top: 2rem;
+        right: 2rem;
+        margin: 0;
     }
 </style>

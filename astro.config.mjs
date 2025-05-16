@@ -8,14 +8,14 @@ export default defineConfig({
   site: "https://example.com",
   integrations: [mdx(), sitemap()],
   i18n: {
-    locales: ['en', 'pl'],
-    defaultLocale: 'en',
+    locales: ["en", "pl"],
+    defaultLocale: "en",
     routing: {
       prefixDefaultLocale: true,
-      fallbackType: "redirect"
+      fallbackType: "redirect",
     },
     fallback: {
-      pl: 'en'
+      pl: "en",
     },
-  }
+  },
 });

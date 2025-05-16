@@ -21,5 +21,4 @@ export const swicthLangInPath = (lang: string) => {
   return pathArray.join("/");
 };
 
-export const getLang = (path: string) =>
-  path.split("/").filter((el) => !!el);
+export const getLang = (path: string) => path.split("/").filter((el) => !!el);
