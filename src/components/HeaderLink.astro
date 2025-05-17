@@ -1,12 +1,16 @@
 ---
 import type { HTMLAttributes } from "astro/types";
+import { checkPathsMatch } from "../utils/paths";
 
 type Props = HTMLAttributes<"a">;
 
 const { href, class: className, ...props } = Astro.props;
-const pathname = "/" + Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
-const subpath = pathname.match(/[^\/]+/g);
-const isActive = href === pathname || href === (subpath?.[0] || "");
+const extractedPath = () => {
+  if (typeof href === "string") return href;
+  if (href instanceof URL) return href.pathname;
+  return "";
+};
+const isActive = checkPathsMatch(Astro.url.pathname, extractedPath());
 ---
 
 <div class:list={["header-link", { "header-link--active": isActive }]}>

@@ -4,9 +4,11 @@ import LanguageSwitcher from "./LanguageSwitcher.astro";
 
 import { SITE_TITLE } from "../consts";
 import { getRelativeLocaleUrl } from "astro:i18n";
+import { getPathParts } from "../utils/paths";
 
-const homePath = getRelativeLocaleUrl("en", "");
-const blogPath = getRelativeLocaleUrl("en", "blog");
+const [currentLang, ..._restOfPathname] = getPathParts(Astro.url.pathname);
+const homePath = getRelativeLocaleUrl(currentLang, "");
+const blogPath = getRelativeLocaleUrl(currentLang, "blog");
 ---
 
 <header>
