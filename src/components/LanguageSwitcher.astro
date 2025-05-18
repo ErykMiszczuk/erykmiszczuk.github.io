@@ -10,7 +10,7 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
 ) || { flag: CHAR_PEN, name: "Default" };
 ---
 
-<button popovertarget="language-switcher-element">
+<button class="language-switcher" popovertarget="language-switcher-element">
     <span class="icon" aria-hidden="true">
         {selectedLanguageDetails.flag}
     </span>
@@ -22,9 +22,12 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
             AVAILABLE_LANGUAGES.map((lang) => (
                 <a
                     href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
-                    class={lang.code === currentLang ? "active" : ""}
+                    class:list={[
+                        lang.code === currentLang ? "active" : "",
+                        "language-list__item",
+                    ]}
                 >
-                    <span class="icon" aria-hidden="true">
+                    <span class="option-icon" aria-hidden="true">
                         {lang.flag}
                     </span>
                     <span class="option-label">{lang.name}</span>
@@ -38,6 +41,7 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
     .active {
         background-color: var(--accent);
         color: var(--main-text);
+        border-radius: 0.3rem;
     }
 
     .language-list {
@@ -46,11 +50,31 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
         background-color: var(--main-background);
     }
 
+    .language-list__item {
+        text-decoration: none;
+        padding: 0.1rem 0.3rem;
+    }
+
+    .language-switcher {
+        padding: 0.75rem 1rem;
+        border-radius: 3rem;
+        border: 2px solid var(--main-text);
+        background-color: var(--main-background);
+        color: var(--main-text);
+    }
+
+    .language-switcher::after {
+        content: "↓";
+    }
+
     :popover-open {
         position: absolute;
         inset: unset;
         top: 2rem;
         right: 2rem;
         margin: 0;
+        background-color: var(--main-background);
+        border: 2px solid var(--main-text);
+        border-radius: 0.5rem;
     }
 </style>
