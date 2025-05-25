@@ -10,40 +10,42 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
 ) || { flag: CHAR_PEN, name: "Default" };
 ---
 
-<button class="language-switcher" popovertarget="language-switcher-element">
-    <span class="icon" aria-hidden="true">
-        {selectedLanguageDetails.flag}
-    </span>
-    <span class="option-label">{selectedLanguageDetails.name}</span>
-</button>
-<div id="language-switcher-element" popover>
-    <div class="language-list">
-        {
-            AVAILABLE_LANGUAGES.map((lang) => (
-                <a
-                    href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
-                    class:list={[
-                        lang.code === currentLang ? "active" : "",
-                        "language-list__item",
-                    ]}
-                >
-                    <span class="option-icon" aria-hidden="true">
-                        {lang.flag}
-                    </span>
-                    <span class="option-label">{lang.name}</span>
-                </a>
-            ))
-        }
+<div class="language-switcher">
+    <button
+        class="language-switcher__button"
+        popovertarget="language-switcher__language-list"
+    >
+        <span class="icon" aria-hidden="true">
+            {selectedLanguageDetails.flag}
+        </span>
+        <span class="option-label">{selectedLanguageDetails.name}</span>
+    </button>
+    <div id="language-switcher__language-list" popover>
+        <div class="language-list">
+            {
+                AVAILABLE_LANGUAGES.map((lang) => (
+                    <a
+                        href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
+                        class:list={[
+                            "language-list__item",
+                            lang.code === currentLang ? "active" : "",
+                        ]}
+                    >
+                        <span class="option-icon" aria-hidden="true">
+                            {lang.flag}
+                        </span>
+                        <span class="option-label">{lang.name}</span>
+                    </a>
+                ))
+            }
+        </div>
     </div>
 </div>
 
 <style>
-    .active {
-        background-color: var(--accent);
-        color: var(--main-text);
-        border-radius: 0.3rem;
+    .language-switcher {
+        position: relative;
     }
-
     .language-list {
         display: flex;
         flex-direction: column;
@@ -53,9 +55,15 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
     .language-list__item {
         text-decoration: none;
         padding: 0.1rem 0.3rem;
+        color: var(--main-text);
     }
 
-    .language-switcher {
+    .language-list__item:hover {
+        color: var(--accent);
+    }
+
+    .language-switcher__button {
+        font-size: 1rem;
         padding: 0.75rem 1rem;
         border-radius: 3rem;
         border: 2px solid var(--main-text);
@@ -63,15 +71,22 @@ const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
         color: var(--main-text);
     }
 
-    .language-switcher::after {
+    .language-switcher__button::after {
         content: "↓";
     }
 
+    .active {
+        background-color: var(--accent);
+        color: var(--main-text);
+        border-radius: 0.3rem;
+    }
+
+    .active:hover {
+        color: var(--main-text);
+    }
     :popover-open {
-        position: absolute;
+        position: relative;
         inset: unset;
-        top: 2rem;
-        right: 2rem;
         margin: 0;
         background-color: var(--main-background);
         border: 2px solid var(--main-text);

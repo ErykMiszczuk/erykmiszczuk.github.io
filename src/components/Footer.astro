@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import { PATHS, SITE_TITLE } from "../consts";
 const today = new Date();
 ---
@@ -29,6 +30,7 @@ const today = new Date();
       >
     </a>
   </div>
+  <ClientRouter />
 </footer>
 <style>
   .main-footer {
