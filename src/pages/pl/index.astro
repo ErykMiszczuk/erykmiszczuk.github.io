@@ -1,0 +1,62 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { useAirlines, useRoads } from "../../utils/transportLayer";
+
+const [airlines, pilots] = useAirlines();
+const [roads, drivers] = useRoads();
+---
+
+<!doctype html>
+<html lang="pl" class="c1">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <h1>Cześć 👋, jestem Eryk</h1>
+      <p>
+        Magister Informatyki pasjonujący się programowaniem, tworzeniem
+        doświadczeń cyfrowych, LEGO i czytaniem książek.
+      </p>
+      <p>
+        W pracy głównie wykorzystuję Vue i Typescript, lecz w wolnym czasie
+        jestem otwarty na nowe technologie i nowe wyzwania. Pracowałem z kilkoma
+        różnymi językami programowania jak Rust czy GDScript, które
+        wykorzystałem w kilku projektach, lecz znam także C#, Python, C++ i C.
+      </p>
+      <p>
+        Interesuję się oprogramowaniem nie tylko od strony inżynieryjnej ale
+        także tej artystycznej, zaczynając od prostych stron kończąc na grach
+        komputerowych. Pozyskuję swoją wiedzę z różnych źródeł mówiących o
+        projektowaniu interfejsu użytkownika ze szczególnym pokreśleniem wagi
+        doświadczenia użytkownika i dostępności. Devlogi, prezentacje z GDC czy
+        innych wydarzeń pokazują rózwój grafiki komputerowej, nowe wzorce w
+        programowaniu czy jak stworzyć interesującą aplikację.
+      </p>
+      <p>
+        W wolnym czasie lubię czytać dobre książki - w szczególności fantastykę,
+        ale także thrillery czy literaturę faktu. Jestem kreatywną osobę i lubię
+        składać modele z klacków LEGO, nie tylko zgodnie z intrukcją - również
+        coś całkowicie stworzonego od podstaw. Oprócz tego ostatnimi czasy
+        pozyskałem trochę różnych książek kucharskich, z których korzystam do
+        ugotowania czy upieczenia czegoś bardziej odmiennego niż typowa kuchnia
+        Polska.
+      </p>
+
+      <h2>Kontakt</h2>
+      <ul>
+        <li>
+          <a href={pilots}>{airlines}</a>
+        </li>
+        <li>
+          <a href={drivers}>{roads}</a>
+        </li>
+      </ul>
+    </main>
+    <Footer />
+  </body>
+</html>
