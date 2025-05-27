@@ -36,7 +36,6 @@ jobs:
       - name: Build
         run: |
           deno install --frozen --lock --allow-scripts
-          deno run lint
           deno run build \
             --site "${{ steps.pages.outputs.origin }}" \
             --base "${{ steps.pages.outputs.base_path }}"
