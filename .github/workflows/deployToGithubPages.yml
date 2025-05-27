@@ -18,6 +18,8 @@ concurrency:
 env:
   BUILD_PATH: "." # default value when not using subfolders
   # BUILD_PATH: subfolder
+  PUBLIC_AIRLINES: ${{ vars.PUBLIC_AIRLINES }}
+  PUBLIC_ROADS: ${{ vars.PUBLIC_ROADS }}
 
 jobs:
   build:
@@ -26,36 +28,44 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4.2.2
 
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
+      - name: Env test
+        run: env
 
-      - name: Prepare Deno
-        uses: denoland/setup-deno@v2.0.3
-
-      - name: Build
-        env:
-          PUBLIC_AIRLINES: ${{ vars.PUBLIC_AIRLINES }}
-          PUBLIC_ROADS: ${{ vars.PUBLIC_ROADS }}
+      - name: Another test
         run: |
-          deno install --frozen --lock --allow-scripts
-          deno run build \
-            --site "${{ steps.pages.outputs.origin }}" \
-            --base "${{ steps.pages.outputs.base_path }}"
-  
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ${{ env.BUILD_PATH }}/dist
+          echo $PUBLIC_AIRLINES \
+          echo $PUBLIC_ROADS
 
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    name: Deploy
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      # - name: Setup Pages
+      #   id: pages
+      #   uses: actions/configure-pages@v5
+
+      # - name: Prepare Deno
+      #   uses: denoland/setup-deno@v2.0.3
+
+      # - name: Build
+      #   env:
+      #     PUBLIC_AIRLINES: ${{ vars.PUBLIC_AIRLINES }}
+      #     PUBLIC_ROADS: ${{ vars.PUBLIC_ROADS }}
+      #   run: |
+      #     deno install --frozen --lock --allow-scripts
+      #     deno run build \
+      #       --site "${{ steps.pages.outputs.origin }}" \
+      #       --base "${{ steps.pages.outputs.base_path }}"
+  
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: ${{ env.BUILD_PATH }}/dist
+
+  # deploy:
+  #   environment:
+  #     name: github-pages
+  #     url: ${{ steps.deployment.outputs.page_url }}
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   name: Deploy
+  #   steps:
+  #     - name: Deploy to GitHub Pages
+  #       id: deployment
+  #       uses: actions/deploy-pages@v4
