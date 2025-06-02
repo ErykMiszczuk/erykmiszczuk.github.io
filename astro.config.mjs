@@ -5,7 +5,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "erykmiszczuk.github.io",
+  base: '/',
   integrations: [mdx(), sitemap()],
   i18n: {
     locales: ["en", "pl"],
