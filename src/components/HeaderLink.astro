@@ -14,7 +14,7 @@ const isActive = checkPathsMatch(Astro.url.pathname, extractedPath());
 ---
 
 <div class:list={["header-link", { "header-link--active": isActive }]}>
-  <a href={href} class:list={[className, { active: isActive }]} {...props}>
+  <a {href} class:list={[className, { active: isActive }]} {...props}>
     <slot />
   </a>
 </div>

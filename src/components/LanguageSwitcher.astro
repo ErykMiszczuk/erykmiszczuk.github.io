@@ -6,90 +6,90 @@ const [currentLang, ...restOfPathname] = getPathParts(Astro.url.pathname);
 const pagePath = restOfPathname.join("/");
 
 const selectedLanguageDetails = AVAILABLE_LANGUAGES.find(
-    (el) => el.code === currentLang,
+  (el) => el.code === currentLang,
 ) || { flag: CHAR_PEN, name: "Default" };
 ---
 
 <div class="language-switcher">
-    <button
-        class="language-switcher__button"
-        popovertarget="language-switcher__language-list"
-    >
-        <span class="icon" aria-hidden="true">
-            {selectedLanguageDetails.flag}
-        </span>
-        <span class="option-label">{selectedLanguageDetails.name}</span>
-    </button>
-    <div id="language-switcher__language-list" popover>
-        <div class="language-list">
-            {
-                AVAILABLE_LANGUAGES.map((lang) => (
-                    <a
-                        href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
-                        class:list={[
-                            "language-list__item",
-                            lang.code === currentLang ? "active" : "",
-                        ]}
-                    >
-                        <span class="option-icon" aria-hidden="true">
-                            {lang.flag}
-                        </span>
-                        <span class="option-label">{lang.name}</span>
-                    </a>
-                ))
-            }
-        </div>
+  <button
+    class="language-switcher__button"
+    popovertarget="language-switcher__language-list"
+  >
+    <span class="icon" aria-hidden="true">
+      {selectedLanguageDetails.flag}
+    </span>
+    <span class="option-label">{selectedLanguageDetails.name}</span>
+  </button>
+  <div id="language-switcher__language-list" popover>
+    <div class="language-list">
+      {
+        AVAILABLE_LANGUAGES.map((lang) => (
+          <a
+            href={`${Astro.url.origin}/${lang.code}/${pagePath}`}
+            class:list={[
+              "language-list__item",
+              lang.code === currentLang ? "active" : "",
+            ]}
+          >
+            <span class="option-icon" aria-hidden="true">
+              {lang.flag}
+            </span>
+            <span class="option-label">{lang.name}</span>
+          </a>
+        ))
+      }
     </div>
+  </div>
 </div>
 
 <style>
-    .language-switcher {
-        position: relative;
-    }
-    .language-list {
-        display: flex;
-        flex-direction: column;
-        background-color: var(--main-background);
-    }
+  .language-switcher {
+    position: relative;
+  }
+  .language-list {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-background);
+  }
 
-    .language-list__item {
-        text-decoration: none;
-        padding: 0.1rem 0.3rem;
-        color: var(--main-text);
-    }
+  .language-list__item {
+    text-decoration: none;
+    padding: 0.1rem 0.3rem;
+    color: var(--main-text);
+  }
 
-    .language-list__item:hover {
-        color: var(--accent);
-    }
+  .language-list__item:hover {
+    color: var(--accent);
+  }
 
-    .language-switcher__button {
-        font-size: 1rem;
-        padding: 0.75rem 1rem;
-        border-radius: 3rem;
-        border: 2px solid var(--main-text);
-        background-color: var(--main-background);
-        color: var(--main-text);
-    }
+  .language-switcher__button {
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    border-radius: 3rem;
+    border: 2px solid var(--main-text);
+    background-color: var(--main-background);
+    color: var(--main-text);
+  }
 
-    .language-switcher__button::after {
-        content: "↓";
-    }
+  .language-switcher__button::after {
+    content: "↓";
+  }
 
-    .active {
-        background-color: var(--accent);
-        color: var(--main-text);
-        border-radius: 0.3rem;
-    }
+  .active {
+    background-color: var(--accent);
+    color: var(--main-text);
+    border-radius: 0.3rem;
+  }
 
-    .active:hover {
-        color: var(--main-text);
-    }
-    :popover-open {
-        position: relative;
-        inset: unset;
-        margin: 0;
-        background-color: var(--main-background);
-        border: 2px solid var(--main-text);
-        border-radius: 0.5rem;
-    }
+  .active:hover {
+    color: var(--main-text);
+  }
+  :popover-open {
+    position: relative;
+    inset: unset;
+    margin: 0;
+    background-color: var(--main-background);
+    border: 2px solid var(--main-text);
+    border-radius: 0.5rem;
+  }
 </style>

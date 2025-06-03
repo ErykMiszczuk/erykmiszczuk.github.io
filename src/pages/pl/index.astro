@@ -2,14 +2,14 @@
 import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 import { useAirlines, useRoads } from "../../utils/transportLayer";
 
 const [airlines, pilots] = useAirlines();
 const [roads, drivers] = useRoads();
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pl" class="c1">
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
@@ -43,8 +43,8 @@ const [roads, drivers] = useRoads();
         składać modele z klacków LEGO, nie tylko zgodnie z intrukcją - również
         coś całkowicie stworzonego od podstaw. Oprócz tego ostatnimi czasy
         pozyskałem trochę różnych książek kucharskich, z których korzystam do
-        ugotowania czy upieczenia czegoś bardziej odmiennego niż typowa kuchnia
-        Polska.
+        ugotowania czy upieczenia czegoś bardziej odmiennego niż typowa Polska
+        kuchnia.
       </p>
 
       <h2>Kontakt</h2>
